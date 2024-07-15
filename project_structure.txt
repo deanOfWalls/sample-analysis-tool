@@ -1,0 +1,62 @@
+.
+├── Dockerfile
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── project_structure.txt
+├── README.md
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── yourname
+│   │   │           └── sample_analysis_tool
+│   │   │               ├── config
+│   │   │               ├── controller
+│   │   │               │   └── SampleController.java
+│   │   │               ├── MainApplication.java
+│   │   │               ├── model
+│   │   │               │   └── ChemicalSample.java
+│   │   │               ├── repository
+│   │   │               │   └── SomeRepository.java
+│   │   │               └── service
+│   │   │                   └── SampleService.java
+│   │   └── resources
+│   │       ├── application.properties
+│   │       ├── static
+│   │       │   ├── script.js
+│   │       │   └── style.css
+│   │       └── templates
+│   │           ├── form.html
+│   │           └── result.html
+│   └── test
+│       └── java
+│           └── com
+│               └── yourname
+│                   └── sample_analysis_tool
+│                       └── SomeTest.java
+└── target
+    ├── classes
+    │   ├── application.properties
+    │   ├── com
+    │   │   └── yourname
+    │   │       └── sample_analysis_tool
+    │   │           ├── controller
+    │   │           │   └── SampleController.class
+    │   │           ├── MainApplication.class
+    │   │           ├── model
+    │   │           │   └── ChemicalSample.class
+    │   │           ├── repository
+    │   │           │   └── SomeRepository.class
+    │   │           └── service
+    │   │               └── SampleService.class
+    │   ├── static
+    │   │   ├── script.js
+    │   │   └── style.css
+    │   └── templates
+    │       ├── form.html
+    │       └── result.html
+    └── generated-sources
+        └── annotations
+
+33 directories, 27 files
