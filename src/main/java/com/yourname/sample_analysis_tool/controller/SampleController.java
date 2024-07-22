@@ -54,4 +54,10 @@ public class SampleController {
     public String completeSample(@RequestBody Sample sample) {
         return sampleService.updateSampleStatus(sample.getSampleId(), "Completed");
     }
+
+    @GetMapping("/api/queue")
+    @ResponseBody
+    public List<Sample> getQueue() {
+        return sampleService.getAllInProgressSamples();
+    }
 }

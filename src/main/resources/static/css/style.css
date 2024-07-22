@@ -4,7 +4,7 @@ body {
 }
 
 .logo {
-    width: 15%;
+    width: 45%; /* 3 times larger */
     margin-bottom: 20px;
     display: block;
     margin-left: auto;
@@ -20,6 +20,12 @@ body {
 .notification {
     margin-top: 20px;
     font-weight: bold;
+}
+
+.camera-preview {
+    width: 300px; /* Adjust size as needed */
+    height: 300px; /* Adjust size as needed */
+    margin: 20px auto;
 }
 
 table {

@@ -18,13 +18,8 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(response => response.text())
         .then(message => {
-            if (message === "Sample not found or not in progress") {
-                scanMessage.textContent = "Sample not found or not in progress";
-                scanMessage.className = 'notification error';
-            } else {
-                scanMessage.textContent = "Scan Successful";
-                scanMessage.className = 'notification success';
-            }
+            scanMessage.textContent = message;
+            scanMessage.className = message.includes("must be 'In Progress'") || message.includes("Sample not found") ? 'notification error' : 'notification success';
             scanMessage.style.display = "block";
             setTimeout(() => {
                 scanMessage.style.display = "none";
