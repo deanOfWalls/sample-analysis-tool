@@ -4,19 +4,11 @@ body {
 }
 
 .logo {
-    width: 25%;
+    width: 15%;
     margin-bottom: 20px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-.form-container {
-    display: inline-block;
-    text-align: center;
-    margin-bottom: 20px;
-    z-index: 10;
-    position: relative;
 }
 
 .page-title {
@@ -25,63 +17,54 @@ body {
     margin-bottom: 10px;
 }
 
-.result-title {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.result-container {
-    display: inline-block;
-    text-align: left;
-    margin-top: 10px;
-    border: 1px solid black;
-    padding: 10px;
-    position: relative;
-    min-width: 430px; /* Adjusted to ensure the container is wide enough */
-    min-height: 220px; /* Adjusted to ensure the container is tall enough */
-}
-
-.qr-code {
-    display: inline-block;
-    vertical-align: middle;
-    width: 200px;
-    height: 200px;
-    background-color: #f0f0f0; /* Light gray background for placeholder */
-    text-align: center;
-    line-height: 200px; /* Center placeholder text vertically */
-}
-
-.qr-code img {
-    width: 200px;
-    height: 200px;
-}
-
-.label-info {
-    display: inline-block;
-    vertical-align: middle;
-    min-width: 200px; /* Ensures the label info section is wide enough */
-}
-
-.label-info p {
-    margin: 5px 0;
-}
-
-.label-info span.label-title {
-    font-weight: bold; /* Make label titles bold */
-}
-
-.print-button {
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-}
-
-.form-container select {
-    margin-top: 10px;
-}
-
 .notification {
     margin-top: 20px;
     font-weight: bold;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+table th, table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #e0f7fa; /* Light blue */
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff; /* White */
+}
+
+/* Remove hover effect */
+table tr:hover {
+    background-color: inherit;
+}
+
+/* Status color and italics */
+table td[style*="color:orange"] {
+    color: orange;
+    font-style: italic;
+}
+
+table td[style*="color:green"] {
     color: green;
+    font-style: italic;
+}
+
+table td[style*="color:blue"] {
+    color: blue;
+    font-style: italic;
 }

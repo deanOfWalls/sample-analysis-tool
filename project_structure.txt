@@ -16,19 +16,28 @@
 │   │   │               │   └── SampleController.java
 │   │   │               ├── MainApplication.java
 │   │   │               ├── model
-│   │   │               │   └── ChemicalSample.java
+│   │   │               │   └── Sample.java
 │   │   │               ├── repository
-│   │   │               │   └── SomeRepository.java
+│   │   │               │   └── SampleRepository.java
 │   │   │               └── service
 │   │   │                   └── SampleService.java
 │   │   └── resources
 │   │       ├── application.properties
 │   │       ├── static
-│   │       │   ├── script.js
-│   │       │   └── style.css
+│   │       │   ├── css
+│   │       │   │   └── style.css
+│   │       │   ├── images
+│   │       │   │   └── logo.png
+│   │       │   └── js
+│   │       │       ├── analysis.js
+│   │       │       ├── completed.js
+│   │       │       ├── drop.js
+│   │       │       └── queue.js
 │   │       └── templates
-│   │           ├── form.html
-│   │           └── result.html
+│   │           ├── analysis.html
+│   │           ├── completed.html
+│   │           ├── drop.html
+│   │           └── queue.html
 │   └── test
 │       └── java
 │           └── com
@@ -45,18 +54,27 @@
     │   │           │   └── SampleController.class
     │   │           ├── MainApplication.class
     │   │           ├── model
-    │   │           │   └── ChemicalSample.class
+    │   │           │   └── Sample.class
     │   │           ├── repository
-    │   │           │   └── SomeRepository.class
+    │   │           │   └── SampleRepository.class
     │   │           └── service
     │   │               └── SampleService.class
     │   ├── static
-    │   │   ├── script.js
-    │   │   └── style.css
+    │   │   ├── css
+    │   │   │   └── style.css
+    │   │   ├── images
+    │   │   │   └── logo.png
+    │   │   └── js
+    │   │       ├── analysis.js
+    │   │       ├── completed.js
+    │   │       ├── drop.js
+    │   │       └── queue.js
     │   └── templates
-    │       ├── form.html
-    │       └── result.html
+    │       ├── analysis.html
+    │       ├── completed.html
+    │       ├── drop.html
+    │       └── queue.html
     └── generated-sources
         └── annotations
 
-33 directories, 27 files
+39 directories, 39 files

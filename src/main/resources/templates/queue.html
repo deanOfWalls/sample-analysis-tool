@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Queue</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="/js/queue.js"></script>
+</head>
+<body>
+<img src="/images/logo.png" class="logo" alt="Logo">
+<h1>Analysis Queue</h1>
+<div id="countdown-timer">Update in 5 seconds</div>
+<div th:if="${message}" th:text="${message}" class="notification"></div>
+<table>
+    <thead>
+    <tr>
+        <th>Sample ID</th>
+        <th>Status</th>
+        <th>Scanned In</th>
+        <th>Received</th>
+        <th>Completed</th>
+        <th>Time Elapsed</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Rows will be dynamically generated -->
+    </tbody>
+</table>
+</body>
+</html>

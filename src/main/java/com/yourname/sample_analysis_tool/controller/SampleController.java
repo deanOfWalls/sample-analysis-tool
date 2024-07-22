@@ -1,13 +1,11 @@
 package com.yourname.sample_analysis_tool.controller;
 
-import com.yourname.sample_analysis_tool.model.ChemicalSample;
+import com.yourname.sample_analysis_tool.model.Sample;
 import com.yourname.sample_analysis_tool.service.SampleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,46 +15,43 @@ public class SampleController {
     @Autowired
     private SampleService sampleService;
 
-    @GetMapping("/")
-    public String getForm(Model model) {
-        model.addAttribute("chemicals", getChemicals());
-        model.addAttribute("sample", getDefaultSample());
-        return "form";
+    @GetMapping("/drop")
+    public String showDropPage(Model model) {
+        return "drop";
     }
 
-    @PostMapping("/generate")
-    public String generateSample(@RequestParam String chemicalName, Model model) {
-        model.addAttribute("chemicals", getChemicals());
-        String chemicalId = getChemicalIdByName(chemicalName);
-        ChemicalSample sample = sampleService.generateSample(chemicalId, chemicalName);
-        model.addAttribute("sample", sample);
-        return "form";
+    @GetMapping("/receive")
+    public String showReceivePage(Model model) {
+        return "receive";
     }
 
-    private List<String> getChemicals() {
-        return List.of("Chemical 1", "Chemical 2", "Chemical 3");
+    @GetMapping("/complete")
+    public String showCompletePage(Model model) {
+        return "complete";
     }
 
-    private String getChemicalIdByName(String chemicalName) {
-        switch (chemicalName) {
-            case "Chemical 1":
-                return "01";
-            case "Chemical 2":
-                return "02";
-            case "Chemical 3":
-                return "03";
-            default:
-                return "00";
-        }
+    @GetMapping("/queue")
+    public String showQueuePage(Model model) {
+        List<Sample> samples = sampleService.getAllSamples();
+        model.addAttribute("samples", samples);
+        return "queue";
     }
 
-    private ChemicalSample getDefaultSample() {
-        ChemicalSample sample = new ChemicalSample();
-        sample.setChemicalName("None");
-        sample.setTime("None");
-        sample.setDate("None");
-        sample.setSampleId("None");
-        sample.setQrCode("");
-        return sample;
+    @PostMapping("/api/dropOff")
+    @ResponseBody
+    public String dropOffSample(@RequestBody Sample sample) {
+        return sampleService.addSample(sample.getSampleId(), "Awaiting Analysis");
+    }
+
+    @PostMapping("/api/receive")
+    @ResponseBody
+    public String receiveSample(@RequestBody Sample sample) {
+        return sampleService.updateSampleStatus(sample.getSampleId(), "Analysis In Progress");
+    }
+
+    @PostMapping("/api/complete")
+    @ResponseBody
+    public String completeSample(@RequestBody Sample sample) {
+        return sampleService.updateSampleStatus(sample.getSampleId(), "Completed");
     }
 }
