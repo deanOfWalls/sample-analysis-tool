@@ -1,46 +1,37 @@
-# CRUD Template
+# Sample Analysis Tool
 
-This project is a Maven-based CRUD Template using Java, Spring Boot, and an H2 database. It's designed as a starting point for beginners learning Java, Spring Boot, and basic CRUD operations.
+## Overview
 
-## Setup
+The Sample Analysis Tool is a Spring Boot application designed to streamline the lab sample analysis process and enhance accountability. The system allows production workers to efficiently manage and track samples from creation to completion using QR codes.
 
-### Option 1: Download as ZIP (Recommended for a Fresh Start)
+## Features
 
-1. Navigate to the GitHub repository page.
-2. Look for the “Code” button and click it.
-3. Choose "Download ZIP".
-4. Extract the ZIP file in your desired location to start working on the project.
+1. **Sample Creation**:
+   - Production workers create a `sampleNumber` in FileMaker.
+   - A label containing the `sampleNumber`, date, and a QR code encoded with the `sampleNumber` is printed.
 
-### Option 2: Clone the Repository (and Remove Git History)
+2. **Sample Drop-off**:
+   - Samples are scanned into a kiosk at a sample drop-off site.
+   - (Future Feature) The option to flag a sample as urgent before scanning may be added.
 
-1. Clone the repository.
-2. Navigate to the project directory in the terminal.
-3. Run `rm -rf .git` to remove the existing `.git` directory. This will delete the current Git history.
-4. Initialize a new Git repository with `git init`, if you wish to use Git for version control.
+3. **Queue Management**:
+   - Upon scanning, the sample is added to a queue.
+   - (Upcoming Feature) The system will call a company API endpoint to retrieve data associated with the `sampleNumber` encoded in the QR code, populating the queue with relevant information.
 
-## Customization
+4. **Sample Processing**:
+   - When a lab analyst retrieves the sample from the drop-off, they scan it at a lab kiosk, updating the status from "Awaiting Analysis" to "In-Progress".
+   - Upon completing the analysis, the analyst scans the sample once more at the lab kiosk, marking it as "Completed" and clearing it from the queue.
 
-After obtaining the template (either by downloading the ZIP or cloning and removing the `.git` directory), you can make it your own:
+## Technologies Used
 
-1. **Update Project Details**:
-    - Modify the `pom.xml` file to reflect your project's groupId, artifactId, and version.
-    - Update the `README.md` to suit your project.
+- **Backend**: Java, Spring Boot, Spring Data JPA, H2 Database
+- **Frontend**: Thymeleaf, HTML, CSS, JavaScript
+- **QR Code Processing**: ZXing library
 
-2. **Develop Your Application**:
-    - Add your own code, models, controllers, etc., to build your application.
+### Prerequisites
 
-## Dockerfile Usage
+- Java 17
+- Maven
+- Any web browser
 
-This template includes a Dockerfile for easy deployment using Docker. To use it:
 
-1. Ensure the Java version in the Dockerfile matches your project requirements.
-2. Replace `com.yourname.sample_analysis_tool.MainApplication` in the ENTRYPOINT command with your project's main class.
-3. If your project doesn't use a Maven wrapper (`mvnw`), update the Dockerfile to use your local Maven installation.
-4. Optionally, adjust the Maven build command to include or exclude test execution as per your needs.
-5. Build and run your Docker image for a containerized version of your application.
-
-This Dockerfile uses a multi-stage build process for efficiency and smaller image size.
-
-## License
-
-This project is licensed under the Creative Commons Zero v1.0 Universal License.
